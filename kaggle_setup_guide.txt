@@ -1,0 +1,139 @@
+USER GUIDE: HOW TO RUN AI VIRAL SHORTS GENERATOR ON KAGGLE
+
+Welcome! This guide explains how to create a Kaggle account, enable GPU acceleration, and run the AI Viral Shorts Generator notebook (.ipynb).
+
+1. CREATE YOUR KAGGLE ACCOUNT
+
+1. Visit https://www.kaggle.com/
+2. Click Register if you do not already have an account.
+3. Sign up with Google or your email address.
+4. Complete any required account verification.
+
+2. CREATE OR OPEN A KAGGLE NOTEBOOK
+
+1. Log in to Kaggle.
+2. Visit https://www.kaggle.com/code
+3. Create a new notebook, or import the .ipynb file included with your purchase.
+4. If you already have a notebook, open it and confirm that the code cells are visible.
+
+To import your notebook, use Kaggle's notebook import/upload workflow. The exact menu labels may vary as Kaggle updates its interface.
+
+3. ENABLE GPU ACCELERATION
+
+1. Open the notebook.
+2. Find Settings or Session options.
+3. Locate Accelerator.
+4. Select an available GPU.
+5. Wait for the session to initialize.
+
+GPU availability depends on your account, usage quota, and current resource availability. If you cannot select a GPU, check whether account verification is required or your quota has been exhausted.
+
+Official documentation: https://www.kaggle.com/docs/notebooks
+
+4. ENABLE INTERNET ACCESS IF NEEDED
+
+If the notebook downloads videos or installs packages, it may need internet access.
+
+1. Open notebook settings.
+2. Find the Internet option.
+3. Enable it if available.
+4. Make sure the source video is accessible and you have permission to use it.
+
+Internet access may be restricted in some notebook environments.
+
+5. CHECK WHETHER THE GPU IS AVAILABLE
+
+Run this in a code cell:
+
+!nvidia-smi
+
+If a GPU has been assigned, the command should display its name and usage information.
+
+For PyTorch-based notebooks, you can also run:
+
+import torch
+
+print("PyTorch version:", torch.__version__)
+print("CUDA available:", torch.cuda.is_available())
+
+if torch.cuda.is_available():
+    print("GPU:", torch.cuda.get_device_name(0))
+
+If CUDA available prints True, PyTorch can access a CUDA-compatible GPU. If your notebook uses a different framework, use that framework's GPU check instead.
+
+6. INSTALL REQUIRED PACKAGES
+
+If the notebook reports a missing package, install the specific dependency required by the project. For example:
+
+!pip install package_name
+
+Replace package_name with the actual missing package. Follow the notebook's dependency instructions. Avoid upgrading major libraries unnecessarily because this can cause compatibility problems.
+
+7. RUN THE NOTEBOOK
+
+1. Start with the first code cell.
+2. Run each cell in order using the Run button or Shift + Enter.
+3. Wait for each cell to finish before running the next one.
+4. Complete any setup cells before the video-processing cells.
+
+You may use Run All to execute the notebook sequentially, but running cells one by one can make errors easier to identify.
+
+8. GENERATE FIVE SHORTS
+
+1. Find the cell or input field where the source video URL is entered.
+2. Paste a supported video link into the correct variable or field.
+3. Run that cell.
+4. Run the remaining cells in the order provided.
+5. Wait for processing and clip generation to finish.
+6. Check the notebook output for the generated video files.
+
+The tool uses its virality-based selection workflow to identify candidate moments and generate five short clips. Processing time depends on the source video's length, hardware availability, network speed, and the notebook's implementation.
+
+9. DOWNLOAD YOUR GENERATED VIDEOS
+
+Kaggle commonly stores notebook-created files in:
+
+/kaggle/working/
+
+1. Find the generated clips in the notebook's output section or file browser.
+2. Use the available download option to save each clip.
+3. Check the output path in the notebook if you cannot find the files.
+4. Review the clips before publishing.
+
+10. TROUBLESHOOTING
+
+GPU is unavailable:
+- Confirm that GPU is selected in notebook settings.
+- Check account verification and GPU usage limits.
+- Try again later if resources are temporarily unavailable.
+
+A package is missing:
+- Read the error message to identify the dependency.
+- Install the package specified by the project instructions.
+- Restart the session only if needed.
+
+Video download fails:
+- Check the URL and internet connection.
+- Confirm that the video is accessible.
+- Check whether the download method used by the script is still supported.
+
+The notebook runs out of memory:
+- Try a shorter source video.
+- Follow the notebook's recommended processing settings.
+- Close other unnecessary sessions.
+
+Generated files cannot be found:
+- Check /kaggle/working/.
+- Inspect the output path configured in the notebook.
+- Confirm that the generation cells completed successfully.
+
+IMPORTANT NOTES
+
+- Kaggle is a managed computing environment. GPU access and usage limits can change.
+- GPU acceleration helps only when the code and libraries support it.
+- Download important output files before the session ends.
+- Review generated clips before publishing.
+- Use only videos you own or have permission to edit and republish.
+- The virality matrix does not guarantee views, followers, or revenue.
+
+You're ready to get started! Follow the steps in order, run the notebook, and turn one source video into five short-form content opportunities.

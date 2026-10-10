@@ -1,0 +1,20 @@
+# Python dependencies for AI Viral Shorts Generator (Kaggle notebook)
+# Kaggle's notebook image normally includes PyTorch. Do not reinstall torch here,
+# because doing so may replace the CUDA-compatible build provided by Kaggle.
+
+yt-dlp[default]
+faster-whisper
+transformers
+accelerate
+bitsandbytes
+decorator
+
+# System tools used by the notebook (install separately if not already available):
+# - Node.js (used by yt-dlp's JavaScript runtime)
+# - FFmpeg (used to crop and render the video clips)
+#
+# In Kaggle, the notebook currently installs Node.js with apt-get.
+# FFmpeg is commonly available in the Kaggle image; verify with: !ffmpeg -version
+#
+# Note: moviepy, numpy, pandas, and kagglehub are installed/imported in setup
+# cells, but are not required by the main processing functions shown in this notebook.
